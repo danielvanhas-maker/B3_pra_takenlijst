@@ -7,9 +7,9 @@
 //Deze config wordt hierna _niet_ meegestuurd naar je groepsgenoten. Zo kan iedereen zijn eigen wachtwoord, etc. invullen.
 
 $dbHost = 'localhost';
-$dbName = 'databasename';
-$dbUser = 'username';
-$dbPass = 'password';
+$dbName = 'takenlijst';
+$dbUser = 'root';
+$dbPass = '';
 
 //De url waarop jouw project staat. Géén slash aan het einde.
-$base_url = '';
+$base_url = 'http://localhost/b3_pra_takenlijst-main/';
