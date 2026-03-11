@@ -1,4 +1,4 @@
-<?php require_once __DIR__.'/backend/config.php'; ?>
+<?php require_once __DIR__.'/../backend/config.php'; ?>
 <!doctype html>
 <html lang="nl">
 
@@ -7,12 +7,12 @@
 </head>
 
 <body>
-    <?php require_once 'header.php'; ?>
+    <?php require_once '../header.php'; ?>
 
 <div class="container">
         <h1>Nieuwe Taak</h1>
 
-        <form action="<?php echo $base_url; ?>backend/taskController.php" method="POST">
+        <form action="<?php echo $base_url; ?>../backend/taskController.php" method="POST">
 
             <div class="form-group">
                 <label for="title">Title van taak:</label>
