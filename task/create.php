@@ -14,6 +14,7 @@
         <h1>Nieuwe Taak</h1>
 
         <form action="<?php echo $base_url; ?>backend/taskController.php" method="POST">
+        <input type="hidden" name="action" value="create">
 
             <div class="form-group">
                 <label for="title">Title van taak:</label>

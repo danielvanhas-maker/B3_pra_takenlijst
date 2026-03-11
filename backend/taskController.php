@@ -60,6 +60,6 @@ if ($action == 'delete'){
     require_once "conn.php";
     $query = "DELETE FROM task WHERE id = :id";
     $statement = $conn->prepare(($query));
-    $statement->execute([":id => $id"]);
-    header("Location: ../task/tasks.php")
+    $statement->execute([":id" => $id]);
+    header("Location: ../task/tasks.php");
 }

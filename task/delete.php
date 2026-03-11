@@ -5,7 +5,9 @@
     <title>Takenlijst / Verwijderen</title>
 </head>
 <body>
-    <?php require_once '../header.php'; ?>
+    <?php require_once '../header.php'; 
+    $id = $_GET['id'];
+    ?>
 
     <h1>Weet je zeker dat je [titel] wilt verwijderen?</h1>
     <form action="../backend/taskController.php" method="POST">
