@@ -30,7 +30,7 @@
             <input type="text" name="title" value="<?php echo $message['title']; ?>">
             <textarea name="description"><?php echo $message['description']; ?></textarea>
             <input type="text" name="department" value="<?php echo $message['department']; ?>">
-            <input type="checkbox" name="status" value="<?php echo $message['status']; ?>">
+            <input type="text" name="status" value="<?php echo $message['status']; ?>">
             <input type="submit" value="Verstuur melding">
         </form>
     </div>  

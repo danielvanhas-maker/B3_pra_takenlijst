@@ -37,5 +37,29 @@ $statement->execute([":title" => $title, ":description" => $description, ":depar
 }
 
 if ($action == 'edit'){
-    
+    $id = (int) $_POST['id'];
+    $title = $_POST['title'];
+    $description = $_POST['description'];
+    $department = $_POST['department'];
+    $status = $_POST['status'];
+    if(empty($title))
+    {
+        die("Vul een titel in");
+    }
+
+    require_once "conn.php"; 
+    $query = "UPDATE task SET title = :title, description = :description, department = :department, status = :status WHERE id = :id";
+    $statement = $conn->prepare($query);
+    $statement->execute([":title" => $title, ":description" => $description, ":department" => $department, ":status" => $status, ":id" => $id]);
+    header("Location: ../task/tasks.php");
+}
+
+if ($action == 'delete'){
+    $id = (int) $_POST['id'];
+
+    require_once "conn.php";
+    $query = "DELETE FROM task WHERE id = :id";
+    $statement = $conn->prepare(($query));
+    $statement->execute([":id => $id"]);
+    header("Location: ../task/tasks.php")
 }
