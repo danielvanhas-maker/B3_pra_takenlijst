@@ -12,4 +12,4 @@ $dbUser = 'root';
 $dbPass = '';
 
 //De url waarop jouw project staat. Géén slash aan het einde.
-$base_url = 'http://localhost/b3_pra_takenlijst-main/';
+$base_url = 'http://localhost/b3_pra_takenlijst-main/B3_pra_takenlijst/';
