@@ -1,5 +1,11 @@
+<?php require_once __DIR__.'/../backend/config.php'; ?>
 <!doctype html>
 <html lang="nl">
+
+<head>
+    <link rel="stylesheet" href="../css/main.css">
+    <title>Tasks</title>
+</head>
 
 <body>
 
