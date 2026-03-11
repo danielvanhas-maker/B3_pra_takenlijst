@@ -15,7 +15,11 @@ if(empty($description))
         $errors[] = "Vul een descriptie in";
     }
 
-$taskFunction = $_POST['taskFunction'];
+$department = $_POST['department'];
+
+$testUserId = 1;
+
+
 
 if(isset($errors)) 
 { 
@@ -23,14 +27,14 @@ var_dump($errors);
 die(); 
 } 
 
-echo $title . " /  " . $description . " / " . $taskFunction;
+echo $title . " /  " . $description . " / " . $department;
 
 require_once 'conn.php';
 
 
-$query = "INSERT INTO task (title, description, taskFunction)
-            VALUE (:title, :description, :taskFunction)";
+$query = "INSERT INTO task (title, description, department, userId)
+            VALUE (:title, :description, :department, :userId)";
 
 $statement = $conn->prepare($query);
 
-$statement->execute([":title" => $title, ":description" => $description, ":taskFunction" => $taskFunction]);
+$statement->execute([":title" => $title, ":description" => $description, ":department" => $department, ":userId" => $testUserId]);
