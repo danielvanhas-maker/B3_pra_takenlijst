@@ -25,14 +25,14 @@
             </div>
 
             <div class="form-group">
-                <label for="taskFunction">Taak functie:</label>
-                <select name="taskFunction" id="taskFunction">
-                    <option value="Filler1">1</option>
-                    <option value="Filler2">Filler2</option>
-                    <option value="Filler3">Filler3</option>
-                    <option value="Filler4">Filler4</option>
-                    <option value="Filler5">Filler5</option>
-                    <option value="Filler6">Filler6</option>
+               <label for="department">Afdeling:</label>
+                <select name="department" id="department">
+                    <option value="personeel">Personeel</option>
+                    <option value="horeca">Horeca</option>
+                    <option value="techniek">Techniek</option>
+                    <option value="inkoop">Inkoop</option>
+                    <option value="klantenservice">Klantenservice</option>
+                    <option value="groen">Groen</option>
                 </select>
             </div>
             
