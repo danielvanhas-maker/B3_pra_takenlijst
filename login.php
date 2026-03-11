@@ -3,7 +3,8 @@
 <html lang="nl">
 
 <head>
-    <title>Log in</title>
+    <link rel="stylesheet" href="css/main.css">
+    <title>Inloggen</title>
 </head>
 
 <body>

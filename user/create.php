@@ -3,6 +3,7 @@
 <html lang="nl">
 
 <head>
+    <link rel="stylesheet" href="../css/main.css">
     <title>User Create</title>
 </head>
 
