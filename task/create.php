@@ -12,7 +12,7 @@
 <div class="container">
         <h1>Nieuwe Taak</h1>
 
-        <form action="<?php echo $base_url; ?>../backend/taskController.php" method="POST">
+        <form action="<?php echo $base_url; ?>backend/taskController.php" method="POST">
 
             <div class="form-group">
                 <label for="title">Title van taak:</label>
