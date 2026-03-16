@@ -10,6 +10,7 @@
             <a href="../task/create.php">Task Create</a> |
             <a href="../task/tasks.php">Tasks</a> | 
             <a href="../login.php">Inloggen</a>
+            <a href="../user/read.php?id=<?php echo $$_SESSION['user_id']; ?>"">Account inzien</a>
         </nav>
     </div>
     
