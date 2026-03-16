@@ -21,7 +21,7 @@ die();
 
 require_once 'conn.php';
 
-$query = "SELECT name, password, id FROM user WHERE name = :name";
+$query = "SELECT id, name, password FROM user WHERE name = :name";
 
 $statement = $conn->prepare($query);
 
@@ -32,7 +32,8 @@ $user = $statement->fetch(PDO::FETCH_ASSOC);
 if ($user && $inputPassword == $user['password'])
     {
         $_SESSION['user_id'] = $user['id'];
-        echo "Login succesvol!";
+        header("Location: index.php");
+        exit;
     }
 else
     {
