@@ -50,8 +50,8 @@ if (!isset($_SESSION['user_id'])) {
                 <td><?= htmlspecialchars($taskNotDone['description']) ?></td>
                 <td><?= htmlspecialchars($taskNotDone['department']) ?></td>
                 <td>Not Done</td>
-                <td><a href="edit.php?id=<?= $taskNotDone['id']; ?>">Edit</a></td>
-                <td><a href="delete.php?id=<?= $taskNotDone['id']; ?>">Delete</a></td>
+                <td><a href="edit.php?id=<?= $taskNotDone['id']; ?>" class="edit">Edit</a></td>
+                <td><a href="delete.php?id=<?= $taskNotDone['id']; ?>"class="delete">Delete</a></td>
             </tr>
         <?php endforeach ?>
     </table>
@@ -73,8 +73,8 @@ if (!isset($_SESSION['user_id'])) {
                 <td><?= htmlspecialchars($taskDone['description']) ?></td>
                 <td><?= htmlspecialchars($taskDone['department']) ?></td>
                 <td>Done</td>
-                <td><a href="edit.php?id=<?= $taskDone['id']; ?>">Edit</a></td>
-                <td><a href="delete.php?id=<?= $taskDone['id']; ?>">Delete</a></td>
+                <td><a href="edit.php?id=<?= $taskDone['id']; ?>" class="edit">Edit</a></td>
+                <td><a href="delete.php?id=<?= $taskDone['id']; ?>" class="delete">Delete</a></td>
             </tr>
         <?php endforeach ?>
     </table>
