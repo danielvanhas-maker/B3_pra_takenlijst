@@ -12,8 +12,14 @@ session_start()
             <a href="<?php echo $base_url; ?>/user/create.php">User Create</a> | 
             <a href="<?php echo $base_url; ?>/task/create.php">Task Create</a> |
             <a href="<?php echo $base_url; ?>/task/tasks.php">Tasks</a> | 
-            <a href="<?php echo $base_url; ?>/login.php">Inloggen</a>
-            <a href="<?php echo $base_url; ?>/user/read.php?id=<?= $_SESSION['user_id']; ?>">Account inzien</a>
+            <a href="<?php echo $base_url; ?>/login.php">Inloggen</a> |
+            <?php if (isset($_SESSION['user_id'])): ?>
+              <div>
+                  <a href="<?= $base_url; ?>/user/read.php?id=<?= htmlspecialchars($_SESSION['user_id']) ?>">
+                      Account inzien
+                  </a>
+              </div>
+            <?php endif; ?>
         </nav>
     </div>
     
