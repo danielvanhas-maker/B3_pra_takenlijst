@@ -32,7 +32,7 @@ if (!isset($_SESSION['user_id'])) {
     $tasksDone = $statementTaskDone->fetchAll(PDO::FETCH_ASSOC);
     ?>
 
-<div class="container home">
+<div class="container">
 
     <h2>Not Done Tasks</h2>
     <table>
@@ -55,8 +55,8 @@ if (!isset($_SESSION['user_id'])) {
             </tr>
         <?php endforeach ?>
     </table>
-
-
+        </div>
+<div class="container">
     <h2>Done Tasks</h2>
     <table>
         <tr>
