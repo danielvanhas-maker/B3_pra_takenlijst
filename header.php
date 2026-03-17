@@ -1,6 +1,8 @@
 <?php
-session_start()
-?>
+if(session_status() == PHP_SESSION_NONE){
+    // Start Session it is not started yet
+    session_start();
+}?>
 <header>
     <div class="header-content">
       <div class="wrapper">
