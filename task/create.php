@@ -13,7 +13,7 @@
 <div class="container">
         <h1>Nieuwe Taak</h1>
 
-        <form action="<?php echo $base_url; ?>backend/taskController.php" method="POST">
+        <form action="<?php echo $base_url; ?>/backend/taskController.php" method="POST">
         <input type="hidden" name="action" value="create">
 
             <div class="form-group">
@@ -27,7 +27,7 @@
             </div>
 
             <div class="form-group">
-               <label for="department">Afdeling:</label>
+                <label for="department">Afdeling:</label>
                 <select name="department" id="department">
                     <option value="personeel">Personeel</option>
                     <option value="horeca">Horeca</option>
@@ -37,9 +37,6 @@
                     <option value="groen">Groen</option>
                 </select>
             </div>
-            
-            
-           
 
             <input type="submit" value="Maak nieuw taak aan">
 

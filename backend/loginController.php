@@ -32,7 +32,7 @@ $user = $statement->fetch(PDO::FETCH_ASSOC);
 if ($user && $inputPassword == $user['password'])
     {
         $_SESSION['user_id'] = $user['id'];
-        header("Location: index.php");
+        header("Location: $base_url/index.php");
         exit;
     }
 else

@@ -24,7 +24,7 @@
         ?>
 
         <!-- Formulier voor edit: -->
-            <form action="../backend/taskController.php" method="POST">
+            <form action="<?php echo $base_url; ?>/backend/taskController.php" method="POST">
             <input type="hidden" name="action" value="edit">
             <input type="hidden" name="id" value="<?php echo $id; ?>">
             <input type="text" name="title" value="<?php echo $message['title']; ?>">

@@ -18,7 +18,6 @@
     ?>
 
     <div class="container home">
-
         <table>
             <th>Title</th>
             <th>Description</th>
@@ -35,9 +34,7 @@
                 </tr>
             <?php endforeach ?>
         </table>
-
     </div>
 
 </body>
-
 </html> 

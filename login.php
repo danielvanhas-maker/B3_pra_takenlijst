@@ -13,7 +13,7 @@
 <div class="container">
         <h1>Log In</h1>
 
-        <form action="<?php echo $base_url; ?>backend/loginController.php" method="POST">
+        <form action="<?php echo $base_url; ?>/backend/loginController.php" method="POST">
 
             <div class="form-group">
                 <label for="name">Naam:</label>
