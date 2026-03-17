@@ -1,0 +1,64 @@
+table {
+    border-collapse: collapse;
+    width: 70%;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-top: 15px;
+    
+}
+
+
+
+th, td {
+    border: 1px solid #000;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #00adfd;
+}
+
+
+tbody tr:nth-child(odd) {
+    background-color: #9fdffd;
+}
+tr:nth-child(odd):hover {
+        background-color: #006086;
+    color: white;
+}
+
+tr:hover {
+    background-color: #006086;
+    color: white;
+}
+
+td .edit {text-shadow: none;
+    color:rgb(143, 141, 248);
+font-weight: bold;}
+
+td .edit:hover 
+{ 
+    color: white;
+    font-weight: bold;
+}
+
+td .delete {text-shadow: none;
+    color:rgb(255, 0, 0);
+font-weight: bold;}
+
+td .delete:hover 
+{ 
+    color: rgb(179, 1, 1);
+    font-weight: bold;
+}
+
+.container
+{
+    margin-left: 25px;
+    .formgroup
+    {
+        display:flex;
+        width:50%;
+    }
+}
