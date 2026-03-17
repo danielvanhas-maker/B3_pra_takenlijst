@@ -38,9 +38,9 @@
                     <option value="groen">Groen</option>
                 </select>
             </div>
-
-            <input type="submit" value="Maak nieuw taak aan">
-
+            <div class="form-submit">
+                <input type="submit" value="Maak nieuw taak aan" class="submit">
+            </div class="form-submit">
         </form>
     </div>
 

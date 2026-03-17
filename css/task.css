@@ -53,12 +53,60 @@ td .delete:hover
     font-weight: bold;
 }
 
-.container
-{
-    margin-left: 25px;
-    .formgroup
+.container {
+    max-width: 750px;
+    margin: 60px auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    
+}
+
+.form-submit {text-align: center;}
+
+.form-group
     {
-        display:flex;
-        width:50%;
+    margin-top: 5px;
+    margin-bottom: 15px;
     }
+
+
+
+.submit
+{
+background-color:#9fdffd;
+border: 1px solid #00adfd;
+width: 240px;
+height: 40px;
+font-weight: bold;
+
+}
+
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-input {
+    width: 97%;
+    padding: 10px;
+    border: 1px solid #bef2ff;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+select{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #bef2ff;
+    border-radius: 6px;
+    font-size: 14px;
 }
