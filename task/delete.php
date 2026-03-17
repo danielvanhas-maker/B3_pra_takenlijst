@@ -3,6 +3,8 @@
 
 <head>
     <title>Takenlijst / Verwijderen</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/task.css">
 </head>
 <body>
     <?php require_once '../header.php'; 

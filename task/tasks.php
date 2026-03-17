@@ -4,6 +4,7 @@
 
 <head>
     <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/task.css">
     <title>Tasks</title>
 </head>
 
@@ -23,14 +24,16 @@
             <th>Description</th>
             <th>Department</th>
             <th>Status</th>
+            <th></th>
+            <th></th>
             <?php foreach ($tasks as $task): ?>
                 <tr>
                     <td><?php echo $task['title']?></td>
                     <td><?php echo $task['description']?></td>
                     <td><?php echo $task['department']?></td>
                     <td><?php echo $task['status']?></td>
-                    <td><a href="edit.php?id=<?php echo $task['id']; ?>">Edit</a></td>
-                    <td><a href="delete.php?id=<?php echo $task['id']; ?>">Delete</a></td>
+                    <td><a href="edit.php?id=<?php echo $task['id']; ?>" class="edit">Edit</a></td>
+                    <td><a href="delete.php?id=<?php echo $task['id']; ?>" class="delete">Delete</a></td>
                 </tr>
             <?php endforeach ?>
         </table>

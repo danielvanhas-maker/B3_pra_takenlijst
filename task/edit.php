@@ -3,6 +3,8 @@
 
 <head>
     <title>Takenlijst / Aanpassen</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/task.css">
 </head>
 
 <body>

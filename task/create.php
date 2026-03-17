@@ -4,6 +4,7 @@
 
 <head>
     <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/task.css">
     <title>Task Create</title>
 </head>
 
