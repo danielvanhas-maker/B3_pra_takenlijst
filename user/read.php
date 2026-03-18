@@ -14,7 +14,8 @@ if(!isset($_SESSION['user_id']))
 
 <head>
     <link rel="stylesheet" href="../css/main.css">
-    <title>Tasks</title>
+    <link rel="stylesheet" href="../css/task.css">
+    <title>Account Inzien</title>
 </head>
 
 <body>
@@ -27,14 +28,17 @@ if(!isset($_SESSION['user_id']))
     $user = $statement->fetch(PDO::FETCH_ASSOC);
     ?>
 
-    <div class="container home">
-        <table>
-            <th>Name</th>
-                <td><?php echo $user['name']?></td>
-                <td><a href="edit.php?id=<?php echo $user['id']; ?>">Edit</a></td>
-                <td><a href="delete.php?id=<?php echo $user['id']; ?>">Delete</a></td>
-        </table>
+    <div class="container">
+        <div class="center">
+        <div class="name">
+                <?php echo $user['name']?>
+        </div class="name">    
+        <div class="choice">    
+                <a href="edit.php?id=<?php echo $user['id']; ?>">Edit</a>
+                <a href="delete.php?id=<?php echo $user['id']; ?>">Delete</a>
+        </div class="choice">        
+        
     </div>
-
+</div>
 </body>
 </html> 
