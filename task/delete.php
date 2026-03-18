@@ -13,7 +13,7 @@
     $id = $_GET['id'];
     ?>
 
-    <h1>Weet je zeker dat je [titel] wilt verwijderen?</h1>
+    <h1>Weet je zeker dat je uw account wilt verwijderen?</h1>
     <form action="<?php echo $base_url; ?>/backend/taskController.php" method="POST">
     <input type="hidden" name="action" value="delete">
     <input type="hidden" name="id" value="<?php echo $id; ?>">
