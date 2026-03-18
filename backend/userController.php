@@ -42,3 +42,13 @@ if($action == "edit"){
     $statement->execute([":name" => $name, ":password" => $password, "id" => $id]);
     header("Location: ../user/read.php");
 }
+
+if ($action == 'delete'){
+    $id = (int) $_POST['id'];
+
+    require_once "conn.php";
+    $query = "DELETE FROM user WHERE id = :id";
+    $statement = $conn->prepare(($query));
+    $statement->execute([":id" => $id]);
+    header("Location: ../index.php");
+}
