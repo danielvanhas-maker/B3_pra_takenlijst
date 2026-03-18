@@ -4,6 +4,7 @@
 
 <head>
     <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/task.css">
     <title>User Create</title>
 </head>
 
@@ -38,9 +39,9 @@
                 <input type="password" name="password" id="password" class="form-input">
             </div>
             
-
-            <input type="submit" value="Maak nieuwe account aan">
-
+<div class="form-submit">
+                <input type="submit" value="Maak nieuwe gebruiker aan" class="submit">
+            </div class="form-submit">
         </form>
     </div>
 
