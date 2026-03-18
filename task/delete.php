@@ -1,3 +1,4 @@
+<?php require_once __DIR__.'/../backend/conn.php'; ?>
 <!doctype html>
 <html lang="nl">
 
@@ -8,6 +9,7 @@
 </head>
 <body>
     <?php require_once '../header.php'; 
+
     $id = $_GET['id'];
     ?>
 

@@ -1,4 +1,4 @@
-<?php require_once __DIR__.'/../backend/config.php'; ?>
+<?php require_once __DIR__.'/../backend/conn.php'; ?>
 <?php
 if(session_status() == PHP_SESSION_NONE){
     // Start Session it is not started yet

@@ -8,7 +8,7 @@ if(!isset($_SESSION['user_id']))
     }
 ?>  
 
-<?php require_once __DIR__.'/../backend/config.php'; ?>
+<?php require_once __DIR__.'/../backend/conn.php'; ?>
 <!doctype html>
 <html lang="nl">
 

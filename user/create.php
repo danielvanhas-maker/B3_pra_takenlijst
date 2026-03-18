@@ -1,4 +1,4 @@
-<?php require_once __DIR__.'/../backend/config.php'; ?>
+<?php require_once __DIR__.'/../backend/conn.php'; ?>
 <!doctype html>
 <html lang="nl">
 
@@ -13,7 +13,7 @@
 <div class="container">
         <h1>Nieuwe User</h1>
 
-        <form action="<?php echo $base_url; ?>backend/userController.php" method="POST">
+        <form action="<?php echo $base_url; ?>/backend/userController.php" method="POST">
         <input type="hidden" name="action" value="create">
 
             <div class="form-group">
