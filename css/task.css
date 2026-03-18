@@ -16,21 +16,22 @@ th, td {
 }
 
 th {
-    background-color: #00adfd;
+    background-color: #0076ad;
+    color: white;
 }
 
 
 tbody tr:nth-child(odd) {
-    background-color: #9fdffd;
+    background-color: #d0f0ff;
 }
 tr:nth-child(odd):hover {
-        background-color: #006086;
-    color: white;
+        background-color: #39e0fda6;
+    
 }
 
 tr:hover {
-    background-color: #006086;
-    color: white;
+    background-color: #39e0fda6;
+    
 }
 
 td .edit {text-shadow: none;
@@ -110,3 +111,4 @@ select{
     border-radius: 6px;
     font-size: 14px;
 }
+
