@@ -23,7 +23,7 @@ var_dump($errors);
 die(); 
 } 
 
-echo $title . " /  " . $description . " / " . $department;
+header("Location: ../task/tasks.php");
 
 require_once 'conn.php';
 
