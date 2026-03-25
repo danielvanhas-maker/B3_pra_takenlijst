@@ -13,8 +13,12 @@ if(session_status() == PHP_SESSION_NONE){
                 <a href="<?php echo $base_url; ?>/index.php">Home</a> | 
                 <a href="<?php echo $base_url; ?>/user/create.php">User Create</a> | 
                 <a href="<?php echo $base_url; ?>/task/create.php">Task Create</a> |
-                <a href="<?php echo $base_url; ?>/task/tasks.php">Tasks</a> | 
-                <a href="<?php echo $base_url; ?>/login.php">Inloggen</a> |
+                <a href="<?php echo $base_url; ?>/task/tasks.php">Tasks</a> 
+                <?php if($_SESSION == TRUE): ?>
+                <p><a href="<?php echo $base_url; ?>/logout.php">Uitloggen</a></p>
+                <?php else: ?>
+                <p><a href="<?php echo $base_url; ?>/login.php">Inloggen</a></p>
+                <?php endif; ?>
                 <?php if (isset($_SESSION['user_id'])): ?>
                     <div>
                         <a href="<?= $base_url; ?>/user/read.php?id=<?= htmlspecialchars($_SESSION['user_id']) ?>">
