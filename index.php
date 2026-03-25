@@ -4,6 +4,7 @@
 
 <head>
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/task.css">
     <title>HomePagina</title>
 </head>
 
@@ -11,7 +12,7 @@
 
     <?php require_once 'header.php'; ?>
 
-    <div class="container home">
+    <div class="container">
 
         <h1>Welkom bij de technische dienst</h1>
 
