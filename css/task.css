@@ -64,6 +64,24 @@ td .delete:hover
     
 }
 
+.taskContainer {
+    margin: 25px 10px 25px 10px;
+    flex: 1 1 300px; 
+    max-width: calc(33% - 1em); 
+    
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
 .form-submit {text-align: center;}
 
 .form-group
