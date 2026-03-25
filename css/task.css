@@ -1,9 +1,6 @@
 table {
     border-collapse: collapse;
     width: 70%;
-    margin-left: 15%;
-    margin-right: 15%;
-    margin-top: 15px;
     
 }
 
@@ -73,6 +70,9 @@ td .delete:hover
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: center;
+    flex-wrap:wrap;
 }
 
 .row {

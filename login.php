@@ -4,6 +4,7 @@
 
 <head>
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/task.css">
     <title>Inloggen</title>
 </head>
 
@@ -24,8 +25,13 @@
                 <label for="password">Wachtwoord</label>
                 <input type="password" name="password" id="password" class="form-input">
             </div>   
-
-            <input type="submit" value="Inloggen">
-
+            <div class="form-submit">
+                <input type="submit" value="Inloggen" class="submit">
+            </div class="form-submit">
         </form>
     </div>
+
+
+</body>
+
+</html>
