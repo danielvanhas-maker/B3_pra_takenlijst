@@ -12,6 +12,7 @@ body, html{
   margin: 0 auto;
 }
 
+
 header{
   background:url('../images/park01.jpg');
   background-size: cover;
@@ -122,5 +123,13 @@ a {
     color: #3485ff;
 }
 
-
+.msg{
+    margin: 1rem 0;
+    padding: 1rem;
+    background-color: lightblue;
+    border-radius: 4px;
+    
+    max-width: 750px;
+    margin: 60px auto;
+}
 
