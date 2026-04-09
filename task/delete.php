@@ -18,7 +18,8 @@ $statement->execute([
 $task = $statement->fetch(PDO::FETCH_ASSOC);
 
 if (!$task) {
-    header('Location: ../task/tasks.php?error=Geen toegang tot deze taak');
+    $msgDelete = "Geen toegang om te verwijderen";
+    header("Location: ../task/tasks.php?msg=$msgDelete");
     exit;
 }
 ?>
