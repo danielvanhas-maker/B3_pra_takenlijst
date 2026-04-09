@@ -9,7 +9,7 @@ if (!isset($_SESSION['user_id'])) {
     header("Location: ../login.php?msg=$msg");
     exit;
 }
-if ($_SESSION['user_admin'] == false)
+if (!isset($_SESSION['user_admin']))
     {
     header("Location: tasks.php");
     }
