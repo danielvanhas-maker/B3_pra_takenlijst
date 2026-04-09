@@ -1,4 +1,27 @@
-<?php require_once __DIR__.'/../backend/conn.php'; ?>
+<?php require_once __DIR__.'/../backend/config.php';
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+if (!isset($_SESSION['user_id'])) {
+    header('Location: ../login.php?msg=Je moet eerst inloggen');
+    exit;
+}
+
+$id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
+require_once '../backend/conn.php';
+$query = 'SELECT * FROM task WHERE id = :id AND userId = :userId';
+$statement = $conn->prepare($query);
+$statement->execute([
+    'id' => $id,
+    'userId' => $_SESSION['user_id'],
+]);
+$task = $statement->fetch(PDO::FETCH_ASSOC);
+
+if (!$task) {
+    header('Location: ../task/tasks.php?error=Geen toegang tot deze taak');
+    exit;
+}
+?>
 <!doctype html>
 <html lang="nl">
 
@@ -8,10 +31,8 @@
     <link rel="stylesheet" href="../css/task.css">
 </head>
 <body>
-    <?php require_once '../header.php'; 
+    <?php require_once '../header.php'; ?>
 
-    $id = $_GET['id'];
-    ?>
     <div class="container">
     <div class="form-submit"> 
         <h1>Weet je zeker dat je deze taak wilt verwijderen?</h1>
