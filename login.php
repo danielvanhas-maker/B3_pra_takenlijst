@@ -11,12 +11,12 @@
 <body>
     <?php require_once 'header.php'; ?>
 <?php
- if(isset($_GET['msg']))
- {
- echo "<div class='msg'>" . $_GET['msg'] . "</div>";
- }
- ?>
- <?php
+if(isset($_GET['msg']))
+{
+echo "<div class='msg'>" . $_GET['msg'] . "</div>";
+}
+?>
+<?php
         if (isset($_POST['submit']))
             {
                 $password = $_POST['password'];

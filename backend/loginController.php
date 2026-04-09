@@ -22,7 +22,7 @@ die();
 
 require_once 'conn.php';
 
-$query = "SELECT id, name, password FROM user WHERE name = :name";
+$query = "SELECT id, name, password, isAdmin FROM user WHERE name = :name";
 
 $statement = $conn->prepare($query);
 
@@ -33,6 +33,10 @@ $user = $statement->fetch(PDO::FETCH_ASSOC);
 if ($user && password_verify($inputPassword, $user['password']))
     {
         $_SESSION['user_id'] = $user['id'];
+        if (($user['isAdmin']) == "1")
+        {
+        $_SESSION['user_admin'] = "true";
+        }
         header("Location: $base_url/task/tasks.php");
         exit;
     }
