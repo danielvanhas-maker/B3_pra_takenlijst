@@ -1,4 +1,5 @@
 <?php
+require_once 'config.php';
 session_start();
 
 $inputName = $_POST['name'];
@@ -29,7 +30,7 @@ $statement->execute([":name" => $inputName]);
 
 $user = $statement->fetch(PDO::FETCH_ASSOC);
 
-if ($user && $inputPassword == $user['password'])
+if ($user && password_verify($inputPassword, $user['password']))
     {
         $_SESSION['user_id'] = $user['id'];
         header("Location: $base_url/task/tasks.php");
