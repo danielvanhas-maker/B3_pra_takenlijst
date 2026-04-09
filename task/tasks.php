@@ -5,44 +5,12 @@ if(session_status() == PHP_SESSION_NONE){
     session_start();
 }
 if (!isset($_SESSION['user_id'])) {
-    header('Location: login.php');
+    $msg = "Je moet eerst inloggen!";
+    header("Location: ../login.php?msg=$msg");
     exit;
 }
 ?>
-<!doctype html>
-<html lang="nl">
 
-<head>
-    <link rel="stylesheet" href="../css/main.css">
-    <link rel="stylesheet" href="../css/task.css">
-    <title>Tasks</title>
-</head>
-
-<body>
-
-    <?php require_once '../header.php'; ?>
-    <?php require_once '../backend/conn.php';
-    $queryNotDone = "SELECT * FROM task WHERE status = 0";
-    $statementTaskNotDone = $conn->prepare($queryNotDone);
-    $statementTaskNotDone->execute();
-    $tasksNotDone = $statementTaskNotDone->fetchAll(PDO::FETCH_ASSOC);
-    $queryDone = "SELECT * FROM task WHERE status = 1";
-    $statementTaskDone = $conn->prepare($queryDone);
-    $statementTaskDone->execute();
-    $tasksDone = $statementTaskDone->fetchAll(PDO::FETCH_ASSOC);
-    ?>
-
-<?php require_once __DIR__.'/../backend/conn.php'; ?>
-
-<?php
-if(session_status() == PHP_SESSION_NONE){
-    session_start();
-}
-if (!isset($_SESSION['user_id'])) {
-    header('Location: login.php');
-    exit;
-}
-?>
 
 <!doctype html>
 
