@@ -1,21 +1,48 @@
 <?php require_once __DIR__.'/../backend/conn.php'; ?>
+
 <?php
-if(session_status() == PHP_SESSION_NONE){
-    // Start Session it is not started yet
+if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
+
 if (!isset($_SESSION['user_id'])) {
     $msg = "Je moet eerst inloggen!";
     header("Location: ../login.php?msg=$msg");
     exit;
 }
+
+
+$view = $_GET['view'] ?? 'department';
+
+if ($view === 'personal') {
+    $filterColumn = 'userId';
+    $filterValue = $_SESSION['user_id'];
+} else {
+    $filterColumn = 'department';
+    $filterValue = $_SESSION['user_department'];
+}
+
+function fetchTasks($conn, $status, $filterColumn, $filterValue) {
+    $query = "SELECT * FROM task 
+              WHERE status = :status 
+              AND $filterColumn = :value";
+
+    $stmt = $conn->prepare($query);
+    $stmt->execute([
+        'status' => $status,
+        'value' => $filterValue
+    ]);
+
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+$tasksNotDone = fetchTasks($conn, 'Not Done', $filterColumn, $filterValue);
+$tasksInReview = fetchTasks($conn, 'In Review', $filterColumn, $filterValue);
+$tasksDone = fetchTasks($conn, 'Done', $filterColumn, $filterValue);
 ?>
 
-
 <!doctype html>
-
 <html lang="nl">
-
 <head>
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/task.css">
@@ -24,35 +51,18 @@ if (!isset($_SESSION['user_id'])) {
 
 <body>
 <?php require_once '../header.php'; ?>
-<a class="center-link" href="tasksPersonal.php">Naar persoonlijke taken</a>
+
+<div class="center-link">
+    <a href="tasks.php?view=department">Sector taken</a> |
+    <a href="tasks.php?view=personal">Persoonlijke taken</a>
+</div>
+
 <?php
-if(isset($_GET['msg']))
-{
-echo "<div class='msg'>" . $_GET['msg'] . "</div>";
+if (isset($_GET['msg'])) {
+    echo "<div class='msg'>" . htmlspecialchars($_GET['msg']) . "</div>";
 }
 ?>
-<?php 
-$queryNotDone = "SELECT * FROM task WHERE status = 'Not Done' AND department = :department"; 
-$statementTaskNotDone = $conn->prepare($queryNotDone); 
-$statementTaskNotDone->execute([
-    'department' => $_SESSION['user_department']
-]); 
-$tasksNotDone = $statementTaskNotDone->fetchAll(PDO::FETCH_ASSOC); 
 
-$queryInReview = "SELECT * FROM task WHERE status = 'In Review' AND department = :department"; 
-$statementTaskInReview = $conn->prepare($queryInReview); 
-$statementTaskInReview->execute([
-    'department' => $_SESSION['user_department']
-]); 
-$tasksInReview = $statementTaskInReview->fetchAll(PDO::FETCH_ASSOC);   
-
-$queryDone = "SELECT * FROM task WHERE status = 'Done' AND department = :department"; 
-$statementTaskDone = $conn->prepare($queryDone); 
-$statementTaskDone->execute([
-    'department' => $_SESSION['user_department']
-]); 
-$tasksDone = $statementTaskDone->fetchAll(PDO::FETCH_ASSOC); 
-?>
 <div class="row">
 
 <div class="taskContainer">
@@ -66,21 +76,21 @@ $tasksDone = $statementTaskDone->fetchAll(PDO::FETCH_ASSOC);
             <th colspan="2">Actions</th>
         </tr>
 
-        <?php foreach ($tasksNotDone as $taskNotDone): ?>
+        <?php foreach ($tasksNotDone as $task): ?>
             <tr>
-                <td><?= htmlspecialchars($taskNotDone['title']) ?></td>
-                <td><?= htmlspecialchars($taskNotDone['description']) ?></td>
-                <td><?= htmlspecialchars($taskNotDone['department']) ?></td>
+                <td><?= htmlspecialchars($task['title']) ?></td>
+                <td><?= htmlspecialchars($task['description']) ?></td>
+                <td><?= htmlspecialchars($task['department']) ?></td>
                 <td>Not Done</td>
-                <td><a href="edit.php?id=<?= $taskNotDone['id']; ?>" class="edit">Edit</a></td>
-                <td><a href="delete.php?id=<?= $taskNotDone['id']; ?>" class="delete">Delete</a></td>
+                <td><a href="edit.php?id=<?= $task['id']; ?>" class="edit">Edit</a></td>
+                <td><a href="delete.php?id=<?= $task['id']; ?>" class="delete">Delete</a></td>
             </tr>
         <?php endforeach ?>
     </table>
 </div>
 
 <div class="taskContainer">
-    <h2>Task In Review</h2>
+    <h2>Tasks In Review</h2>
     <table>
         <tr>
             <th>Title</th>
@@ -90,14 +100,14 @@ $tasksDone = $statementTaskDone->fetchAll(PDO::FETCH_ASSOC);
             <th colspan="2">Actions</th>
         </tr>
 
-        <?php foreach ($tasksInReview as $tasksInReview): ?>
+        <?php foreach ($tasksInReview as $task): ?>
             <tr>
-                <td><?= htmlspecialchars($tasksInReview['title']) ?></td>
-                <td><?= htmlspecialchars($tasksInReview['description']) ?></td>
-                <td><?= htmlspecialchars($tasksInReview['department']) ?></td>
+                <td><?= htmlspecialchars($task['title']) ?></td>
+                <td><?= htmlspecialchars($task['description']) ?></td>
+                <td><?= htmlspecialchars($task['department']) ?></td>
                 <td>In Review</td>
-                <td><a href="edit.php?id=<?= $tasksInReview['id']; ?>" class="edit">Edit</a></td>
-                <td><a href="delete.php?id=<?= $tasksInReview['id']; ?>" class="delete">Delete</a></td>
+                <td><a href="edit.php?id=<?= $task['id']; ?>" class="edit">Edit</a></td>
+                <td><a href="delete.php?id=<?= $task['id']; ?>" class="delete">Delete</a></td>
             </tr>
         <?php endforeach ?>
     </table>
@@ -114,14 +124,14 @@ $tasksDone = $statementTaskDone->fetchAll(PDO::FETCH_ASSOC);
             <th colspan="2">Actions</th>
         </tr>
 
-        <?php foreach ($tasksDone as $taskDone): ?>
+        <?php foreach ($tasksDone as $task): ?>
             <tr>
-                <td><?= htmlspecialchars($taskDone['title']) ?></td>
-                <td><?= htmlspecialchars($taskDone['description']) ?></td>
-                <td><?= htmlspecialchars($taskDone['department']) ?></td>
+                <td><?= htmlspecialchars($task['title']) ?></td>
+                <td><?= htmlspecialchars($task['description']) ?></td>
+                <td><?= htmlspecialchars($task['department']) ?></td>
                 <td>Done</td>
-                <td><a href="edit.php?id=<?= $taskDone['id']; ?>" class="edit">Edit</a></td>
-                <td><a href="delete.php?id=<?= $taskDone['id']; ?>" class="delete">Delete</a></td>
+                <td><a href="edit.php?id=<?= $task['id']; ?>" class="edit">Edit</a></td>
+                <td><a href="delete.php?id=<?= $task['id']; ?>" class="delete">Delete</a></td>
             </tr>
         <?php endforeach ?>
     </table>
@@ -131,6 +141,3 @@ $tasksDone = $statementTaskDone->fetchAll(PDO::FETCH_ASSOC);
 
 </body>
 </html>
-
-
-
