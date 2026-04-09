@@ -50,5 +50,5 @@ if ($action == 'delete'){
     $query = "DELETE FROM user WHERE id = :id";
     $statement = $conn->prepare(($query));
     $statement->execute([":id" => $id]);
-    header("Location: ../index.php");
+    header('Location: ../task/tasks.php');
 }
