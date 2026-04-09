@@ -26,23 +26,25 @@ if (!isset($_SESSION['user_id'])) {
 
 <?php require_once '../header.php'; ?>
 <?php
- if(isset($_GET['msg']))
- {
- echo "<div class='msg'>" . $_GET['msg'] . "</div>";
- }
- ?>
+if(isset($_GET['msg']))
+{
+echo "<div class='msg'>" . $_GET['msg'] . "</div>";
+}
+?>
 <?php 
-$queryNotDone = "SELECT * FROM task WHERE status = 'Not Done'"; 
+$queryNotDone = "SELECT * FROM task WHERE status = 'Not Done' AND department = :department"; 
 $statementTaskNotDone = $conn->prepare($queryNotDone); 
-$statementTaskNotDone->execute(); 
+$statementTaskNotDone->execute([
+    'department' => $_SESSION['user_department']
+]); 
 $tasksNotDone = $statementTaskNotDone->fetchAll(PDO::FETCH_ASSOC); 
 
-$queryInReview = "SELECT * FROM task WHERE status = 'In Review'"; 
+$queryInReview = "SELECT * FROM task WHERE status = 'In Review' AND department = :department"; 
 $statementTaskInReview = $conn->prepare($queryInReview); 
 $statementTaskInReview->execute(); 
 $tasksInReview = $statementTaskInReview->fetchAll(PDO::FETCH_ASSOC);   
 
-$queryDone = "SELECT * FROM task WHERE status = 'Done'"; 
+$queryDone = "SELECT * FROM task WHERE status = 'Done' AND department = :department"; 
 $statementTaskDone = $conn->prepare($queryDone); 
 $statementTaskDone->execute(); 
 $tasksDone = $statementTaskDone->fetchAll(PDO::FETCH_ASSOC); 
