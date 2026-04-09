@@ -24,7 +24,7 @@ if (!isset($_SESSION['user_id'])) {
 
 <body>
 <?php require_once '../header.php'; ?>
-<a class="center-link" href="tasksPersonal.php">Naar persoonlijke taken</a>
+<a class="center-link" href="tasks.php">Naar sector taken</a>
 <?php
 if(isset($_GET['msg']))
 {
@@ -32,10 +32,10 @@ echo "<div class='msg'>" . $_GET['msg'] . "</div>";
 }
 ?>
 <?php 
-$queryNotDone = "SELECT * FROM task WHERE status = 'Not Done' AND department = :department"; 
+$queryNotDone = "SELECT * FROM task WHERE status = 'Not Done' AND userId = :userId"; 
 $statementTaskNotDone = $conn->prepare($queryNotDone); 
 $statementTaskNotDone->execute([
-    'department' => $_SESSION['user_department']
+    'userId' => $_SESSION['user_id']
 ]); 
 $tasksNotDone = $statementTaskNotDone->fetchAll(PDO::FETCH_ASSOC); 
 

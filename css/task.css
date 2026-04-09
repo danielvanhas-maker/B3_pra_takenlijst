@@ -133,13 +133,17 @@ select{
 .center
 {
     text-align: center;
-    
 }
 
 .name
 {
     font-weight: Bold;
     margin-bottom: 10px;
+}
+
+.center-link{
+    display: flex;
+    justify-content: center;
 }
 
 .choice a

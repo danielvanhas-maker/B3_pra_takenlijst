@@ -27,7 +27,7 @@ if (!isset($_SESSION['user_admin']))
 </head>
 
 <body>
-
+<a href="tasksPersonal.php">Naar persoonlijke taken</a>
 <?php require_once '../header.php'; ?>
 
 <?php 
