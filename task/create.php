@@ -38,6 +38,12 @@
                     <option value="groen">Groen</option>
                 </select>
             </div>
+
+            <div class="form-group">
+                <label for="deadline">Deadline</label>
+                <input type=date name="deadline" id="deadline" >
+            </div>
+
             <div class="form-submit">
                 <input type="submit" value="Maak nieuwe taak aan" class="submit">
             </div class="form-submit">

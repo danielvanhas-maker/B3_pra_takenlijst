@@ -21,14 +21,19 @@ if ($action == 'create') {
 
     $department = $_POST['department'];
 
-    if (isset($errors)) {
+    
+
+    $deadline = $_POST['deadline'];
+
+if (isset($errors)) {
         var_dump($errors);
         die();
-    }
+    }    
 
-    require_once 'conn.php';
+require_once 'conn.php';
 
-    $query = 'INSERT INTO task (title, description, department, userId) VALUES (:title, :description, :department, :userId)';
+if (isset($deadline)) {
+     $query = 'INSERT INTO task (title, description, department, userId) VALUES (:title, :description, :department, :userId)';
     $statement = $conn->prepare($query);
     $statement->execute([
         ':title' => $title,
@@ -36,17 +41,33 @@ if ($action == 'create') {
         ':department' => $department,
         ':userId' => $userId,
     ]);
+    header('Location: ../task/tasks.php');
+    exit;
+}    
+
+else {
+
+    $query = 'INSERT INTO task (title, description, department, deadline, userId) VALUES (:title, :description, :department, :deadline, :userId)';
+    $statement = $conn->prepare($query);
+    $statement->execute([
+        ':title' => $title,
+        ':description' => $description,
+        ':department' => $department,
+        ':deadline' => $deadline,
+        ':userId' => $userId,
+    ]);
 
     header('Location: ../task/tasks.php');
     exit;
 }
-
+}
 if ($action == 'edit') {
     $id = (int) $_POST['id'];
     $title = trim($_POST['title']);
     $description = trim($_POST['description']);
     $department = $_POST['department'];
     $status = $_POST['status'];
+    $deadline = $_POST['deadline'];
 
     require_once 'conn.php';
     $query = 'SELECT userId FROM task WHERE id = :id';
@@ -66,12 +87,13 @@ if ($action == 'edit') {
     }
 
     if ($isOwner) {
-        $query = 'UPDATE task SET title = :title, description = :description, department = :department, status = :status WHERE id = :id AND userId = :userId';
+        $query = 'UPDATE task SET title = :title, description = :description, department = :department, status = :status, deadline = :deadline WHERE id = :id AND userId = :userId';
         $params = [
             ':title' => $title,
             ':description' => $description,
             ':department' => $department,
             ':status' => $status,
+            ':deadline' => $deadline,
             ':id' => $id,
             ':userId' => $userId,
         ];

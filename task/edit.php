@@ -73,6 +73,10 @@ if (!isset($_SESSION['user_id'])) {
                     <option value="Done" <?php if ($message['status'] === 'Done') echo 'selected'; ?>>Done</option>
                 </select>
             </div>  
+            <div class="form-group">
+                <label for="deadline">Deadline</label>
+                <input type=date name="deadline" id="deadline" value="<?php echo $message['deadline']; ?>" class="form-input" <?php echo $isOwner ? '' : 'readonly'; ?> >
+            </div>
             <div class="form-submit">
                 <input type="submit" value="Pas melding aan" class="submit">
             </div class="form-submit">

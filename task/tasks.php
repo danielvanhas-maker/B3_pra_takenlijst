@@ -25,7 +25,8 @@ if ($view === 'personal') {
 function fetchTasks($conn, $status, $filterColumn, $filterValue) {
     $query = "SELECT * FROM task 
               WHERE status = :status 
-              AND $filterColumn = :value";
+              AND $filterColumn = :value
+              ORDER BY deadline";
 
     $stmt = $conn->prepare($query);
     $stmt->execute([
@@ -73,6 +74,7 @@ if (isset($_GET['msg'])) {
             <th>Description</th>
             <th>Department</th>
             <th>Status</th>
+            <th>Deadline</th>
             <th colspan="2">Actions</th>
         </tr>
 
@@ -82,6 +84,7 @@ if (isset($_GET['msg'])) {
                 <td><?= htmlspecialchars($task['description']) ?></td>
                 <td><?= htmlspecialchars($task['department']) ?></td>
                 <td>Not Done</td>
+                <td><?= $task['deadline']?></td>
                 <td><a href="edit.php?id=<?= $task['id']; ?>" class="edit">Edit</a></td>
                 <td><a href="delete.php?id=<?= $task['id']; ?>" class="delete">Delete</a></td>
             </tr>
@@ -97,6 +100,7 @@ if (isset($_GET['msg'])) {
             <th>Description</th>
             <th>Department</th>
             <th>Status</th>
+            <th>Deadline</th>
             <th colspan="2">Actions</th>
         </tr>
 
@@ -106,6 +110,7 @@ if (isset($_GET['msg'])) {
                 <td><?= htmlspecialchars($task['description']) ?></td>
                 <td><?= htmlspecialchars($task['department']) ?></td>
                 <td>In Review</td>
+                <td><?= $task['deadline']?></td>
                 <td><a href="edit.php?id=<?= $task['id']; ?>" class="edit">Edit</a></td>
                 <td><a href="delete.php?id=<?= $task['id']; ?>" class="delete">Delete</a></td>
             </tr>
@@ -121,6 +126,7 @@ if (isset($_GET['msg'])) {
             <th>Description</th>
             <th>Department</th>
             <th>Status</th>
+            <th>Deadline</th>
             <th colspan="2">Actions</th>
         </tr>
 
@@ -130,6 +136,7 @@ if (isset($_GET['msg'])) {
                 <td><?= htmlspecialchars($task['description']) ?></td>
                 <td><?= htmlspecialchars($task['department']) ?></td>
                 <td>Done</td>
+                <td><?= $task['deadline']?></td>
                 <td><a href="edit.php?id=<?= $task['id']; ?>" class="edit">Edit</a></td>
                 <td><a href="delete.php?id=<?= $task['id']; ?>" class="delete">Delete</a></td>
             </tr>
