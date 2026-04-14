@@ -87,17 +87,42 @@ if ($action == 'edit') {
     }
 
     if ($isOwner) {
-        $query = 'UPDATE task SET title = :title, description = :description, department = :department, status = :status, deadline = :deadline WHERE id = :id AND userId = :userId';
-        $params = [
-            ':title' => $title,
-            ':description' => $description,
-            ':department' => $department,
-            ':status' => $status,
-            ':deadline' => $deadline,
-            ':id' => $id,
-            ':userId' => $userId,
-        ];
-    } else {
+        if (isset($deadline)) {
+            $query = 'UPDATE task SET title = :title, description = :description, department = :department, status = :status WHERE id = :id AND userId = :userId';
+            $statement = $conn->prepare($query);
+            $statement->execute([
+                ':title' => $title,
+                ':description' => $description,
+                ':department' => $department,
+                ':status' => $status,
+                ':id' => $id,
+                ':userId' => $userId,
+            ]);
+            header('Location: ../task/tasks.php');
+            exit;
+        }    
+
+        else {
+
+            $query = 'UPDATE task SET title = :title, description = :description, department = :department, status = :status, deadline = :deadline WHERE id = :id AND userId = :userId';
+            $statement = $conn->prepare($query);
+            $statement->execute([
+                ':title' => $title,
+                ':description' => $description,
+                ':department' => $department,
+                ':status' => $status,
+                ':deadline' => $deadline,
+                ':id' => $id,
+                ':userId' => $userId,
+            ]);
+
+            header('Location: ../task/tasks.php');
+            exit;
+            }
+
+    } 
+    
+    else {
         $query = 'UPDATE task SET status = :status WHERE id = :id';
         $params = [
             ':status' => $status,
