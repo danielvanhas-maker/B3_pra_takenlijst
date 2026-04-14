@@ -43,6 +43,7 @@ if ($user && password_verify($inputPassword, $user['password']))
     }
 else
     {
-        echo "Ongeldige naam of wachtwoord.";
+        $errormsg = "Ongeldige naam of wachtwoord!";
+        header("Location: ../login.php?msg=$errormsg");
     }
 

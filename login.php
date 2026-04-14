@@ -26,7 +26,12 @@ echo "<div class='msg'>" . $_GET['msg'] . "</div>";
 ?>
 <div class="container">
         <h1>Log In</h1>
-        
+        <?php
+if(isset($_GET['errormsg']))
+{
+echo "<div class='msg'>" . $_GET['msg'] . "</div>";
+}
+?>
         <form action="<?php echo $base_url; ?>/backend/loginController.php" method="POST">
 
             <div class="form-group">
