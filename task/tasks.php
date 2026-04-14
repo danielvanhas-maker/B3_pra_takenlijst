@@ -114,7 +114,7 @@ if (isset($_GET['msg'])) {
 </div>
 
 <div class="taskContainer">
-    <h2>Done Tasks</h2>
+    <h2>Completed Task</h2>
     <table>
         <tr>
             <th>Title</th>
