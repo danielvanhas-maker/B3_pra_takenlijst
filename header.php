@@ -14,10 +14,10 @@ if(session_status() == PHP_SESSION_NONE){
                 <a href="<?php echo $base_url; ?>/task/tasks.php">Taken</a> |
                 <?php else: ?>
                 <a href="<?php echo $base_url; ?>/user/create.php">Gebruiker aanmaken</a> |
-                <a href="<?php echo $base_url; ?>/user/users.php">Gebruikers beheren</a>
+                <a href="<?php echo $base_url; ?>/user/users.php">Gebruikers beheren</a> |
                 <a href="<?php echo $base_url; ?>/task/tasksAdmin.php">Taken</a> |
                 <?php endif; ?>
-                <a href="<?php echo $base_url; ?>/task/create.php">Taak aanmaken</a>
+                <a href="<?php echo $base_url; ?>/task/create.php">Taak aanmaken</a> 
                 <?php if($_SESSION == TRUE): ?>
                 <p><a href="<?php echo $base_url; ?>/logout.php">Uitloggen</a></p>
                 <?php else: ?>
