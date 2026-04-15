@@ -27,8 +27,8 @@ if (!isset($_SESSION['user_admin']))
 </head>
 
 <body>
-<a href="tasksPersonal.php">Naar persoonlijke taken</a>
 <?php require_once '../header.php'; ?>
+<a href="tasksPersonal.php">Naar persoonlijke taken</a>
 
 <?php 
 $queryNotDone = "SELECT * FROM task WHERE status = 'Not Done'"; 
@@ -66,6 +66,7 @@ $tasksDone = $statementTaskDone->fetchAll(PDO::FETCH_ASSOC);
                 <td><?= htmlspecialchars($taskNotDone['description']) ?></td>
                 <td><?= htmlspecialchars($taskNotDone['department']) ?></td>
                 <td>Te Doen</td>
+                <td><?= $task['deadline']?></td>
                 <td><a href="edit.php?id=<?= $taskNotDone['id']; ?>" class="edit">Edit</a></td>
                 <td><a href="delete.php?id=<?= $taskNotDone['id']; ?>" class="delete">Delete</a></td>
             </tr>
@@ -91,6 +92,7 @@ $tasksDone = $statementTaskDone->fetchAll(PDO::FETCH_ASSOC);
                 <td><?= htmlspecialchars($tasksInReview['description']) ?></td>
                 <td><?= htmlspecialchars($tasksInReview['department']) ?></td>
                 <td>In Review</td>
+                <td><?= $task['deadline']?></td>
                 <td><a href="edit.php?id=<?= $tasksInReview['id']; ?>" class="edit">Edit</a></td>
                 <td><a href="delete.php?id=<?= $tasksInReview['id']; ?>" class="delete">Delete</a></td>
             </tr>
@@ -116,6 +118,7 @@ $tasksDone = $statementTaskDone->fetchAll(PDO::FETCH_ASSOC);
                 <td><?= htmlspecialchars($taskDone['description']) ?></td>
                 <td><?= htmlspecialchars($taskDone['department']) ?></td>
                 <td>Voltooid</td>
+                <td><?= $task['deadline']?></td>
                 <td><a href="edit.php?id=<?= $taskDone['id']; ?>" class="edit">Edit</a></td>
                 <td><a href="delete.php?id=<?= $taskDone['id']; ?>" class="delete">Delete</a></td>
             </tr>
