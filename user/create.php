@@ -1,6 +1,23 @@
 <?php require_once __DIR__.'/../backend/conn.php'; ?>
+<?php
+if(session_status() == PHP_SESSION_NONE){
+    // Start Session it is not started yet
+    session_start();
+}
+if (!isset($_SESSION['user_id'])) {
+    $msg = "Je moet eerst inloggen!";
+    header("Location: ../login.php?msg=$msg");
+    exit;
+}
+if (!isset($_SESSION['user_admin']))
+    {
+    header("Location: tasks.php");
+    }
+?>
+
 <!doctype html>
 <html lang="nl">
+
 
 <head>
     <link rel="stylesheet" href="../css/main.css">
@@ -12,7 +29,7 @@
     <?php require_once '../header.php'; ?>
 
 <div class="container">
-        <h1>Nieuwe User</h1>
+        <h1>Nieuwe gebruiker</h1>
 
         <form action="<?php echo $base_url; ?>/backend/userController.php" method="POST">
         <input type="hidden" name="action" value="create">
