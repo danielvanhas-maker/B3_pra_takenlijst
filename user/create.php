@@ -1,7 +1,9 @@
 <?php require_once __DIR__.'/../backend/conn.php'; ?>
-<!doctype html>
-<html lang="nl">
-
+<?php
+if(session_status() == PHP_SESSION_NONE){
+    // Start Session it is not started yet
+    session_start();
+}
 if (!isset($_SESSION['user_id'])) {
     $msg = "Je moet eerst inloggen!";
     header("Location: ../login.php?msg=$msg");
@@ -12,6 +14,10 @@ if (!isset($_SESSION['user_admin']))
     header("Location: tasks.php");
     }
 ?>
+
+<!doctype html>
+<html lang="nl">
+
 
 <head>
     <link rel="stylesheet" href="../css/main.css">
