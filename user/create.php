@@ -2,6 +2,17 @@
 <!doctype html>
 <html lang="nl">
 
+if (!isset($_SESSION['user_id'])) {
+    $msg = "Je moet eerst inloggen!";
+    header("Location: ../login.php?msg=$msg");
+    exit;
+}
+if (!isset($_SESSION['user_admin']))
+    {
+    header("Location: tasks.php");
+    }
+?>
+
 <head>
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/task.css">
