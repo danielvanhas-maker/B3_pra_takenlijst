@@ -13,10 +13,9 @@ if(session_status() == PHP_SESSION_NONE){
                 <?php if (!isset($_SESSION['user_admin'])): ?>
                 <a href="<?php echo $base_url; ?>/task/tasks.php">Taken</a> |
                 <?php else: ?>
-                <a href="<?php echo $base_url; ?>/task/tasksAdmin.php">Taken</a> |
-                <?php endif; ?>
-                <?php if (isset($_SESSION['user_admin'])): ?>
                 <a href="<?php echo $base_url; ?>/user/create.php">Gebruiker aanmaken</a> |
+                <a href="<?php echo $base_url; ?>/user/users.php">Gebruikers beheren</a>
+                <a href="<?php echo $base_url; ?>/task/tasksAdmin.php">Taken</a> |
                 <?php endif; ?>
                 <a href="<?php echo $base_url; ?>/task/create.php">Taak aanmaken</a>
                 <?php if($_SESSION == TRUE): ?>
