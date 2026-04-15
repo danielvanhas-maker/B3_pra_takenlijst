@@ -41,7 +41,7 @@
 
             <div class="form-group">
                 <label for="deadline">Deadline</label>
-                <input type=date name="deadline" id="deadline" >
+                <input type=date name="deadline" id="deadline" class="form-input">
             </div>
 
             <div class="form-submit">

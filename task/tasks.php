@@ -102,8 +102,8 @@ if (isset($_GET['msg'])) {
                 <td><?= htmlspecialchars($task['department']) ?></td>
                 <td>Te Doen</td>
                 <td><?= $task['deadline']?></td>
-                <td><a href="edit.php?id=<?= $task['id']; ?>" class="edit">Edit</a></td>
-                <td><a href="delete.php?id=<?= $task['id']; ?>" class="delete">Delete</a></td>
+                <td class="Actions"><a href="edit.php?id=<?= $task['id']; ?>" class="edit">Edit</a></td>
+                <td class="Actions"><a href="delete.php?id=<?= $task['id']; ?>" class="delete">Delete</a></td>
             </tr>
         <?php endforeach ?>
     </table>
@@ -128,8 +128,8 @@ if (isset($_GET['msg'])) {
                 <td><?= htmlspecialchars($task['department']) ?></td>
                 <td>In Review</td>
                 <td><?= $task['deadline']?></td>
-                <td><a href="edit.php?id=<?= $task['id']; ?>" class="edit">Edit</a></td>
-                <td><a href="delete.php?id=<?= $task['id']; ?>" class="delete">Delete</a></td>
+                <td class="Actions"><a href="edit.php?id=<?= $task['id']; ?>" class="edit">Edit</a></td>
+                <td class="Actions"><a href="delete.php?id=<?= $task['id']; ?>" class="delete">Delete</a></td>
             </tr>
         <?php endforeach ?>
     </table>
@@ -154,8 +154,8 @@ if (isset($_GET['msg'])) {
                 <td><?= htmlspecialchars($task['department']) ?></td>
                 <td>Voltooid</td>
                 <td><?= $task['deadline']?></td>
-                <td><a href="edit.php?id=<?= $task['id']; ?>" class="edit">Edit</a></td>
-                <td><a href="delete.php?id=<?= $task['id']; ?>" class="delete">Delete</a></td>
+                <td class="Actions"><a href="edit.php?id=<?= $task['id']; ?>" class="edit">Edit</a></td>
+                <td class="Actions"><a href="delete.php?id=<?= $task['id']; ?>" class="delete">Delete</a></td>
             </tr>
         <?php endforeach ?>
     </table>
