@@ -34,13 +34,14 @@ header("Location: ../index.php");
 if($action == "edit"){
     $id = (int) $_POST['id'];
     $name = $_POST['name'];
+    $userFunction = $_POST['function'];
     $password = $_POST['password'];
     $hash = password_hash($password, PASSWORD_DEFAULT);
 
     require_once "conn.php"; 
-    $query = "UPDATE user SET name = :name, password = :password WHERE id = :id";
+    $query = "UPDATE user SET name = :name, userFunction = :userFunction, password = :password WHERE id = :id";
     $statement = $conn->prepare($query);
-    $statement->execute([":name" => $name, ":password" => $hash, ":id" => $id]);
+    $statement->execute([":name" => $name, ":userFunction" => $userFunction, ":password" => $hash, ":id" => $id]);
     header("Location: ../user/read.php");
 }
 
