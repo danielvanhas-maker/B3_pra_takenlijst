@@ -44,6 +44,6 @@ if ($user && password_verify($inputPassword, $user['password']))
 else
     {
         $errormsg = "Ongeldige naam of wachtwoord!";
-        header("Location: ../login.php?msg=$errormsg");
+        header("Location: ../index.php?msg=$errormsg");
     }
 

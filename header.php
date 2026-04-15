@@ -21,7 +21,7 @@ if(session_status() == PHP_SESSION_NONE){
                 <?php if($_SESSION == TRUE): ?>
                 <p><a href="<?php echo $base_url; ?>/logout.php">Uitloggen</a></p>
                 <?php else: ?>
-                <p><a href="<?php echo $base_url; ?>/login.php">Inloggen</a></p>
+                <p><a href="<?php echo $base_url; ?>/index.php">Inloggen</a></p>
                 <?php endif; ?>
                 <?php if (isset($_SESSION['user_id'])): ?>
                     <div>

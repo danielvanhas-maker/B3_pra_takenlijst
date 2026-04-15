@@ -3,7 +3,7 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 if (!isset($_SESSION['user_id'])) {
-    header('Location: ../login.php?msg=Je moet eerst inloggen');
+    header('Location: ../index.php?msg=Je moet eerst inloggen');
     exit;
 }
 ?>

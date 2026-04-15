@@ -28,7 +28,7 @@ $query = "INSERT INTO user (name, userFunction, password)
             VALUE (:name, :userFunction, :password)";
 $statement = $conn->prepare($query);
 $statement->execute([":name" => $name, ":userFunction" => $userFunction, ":password" => $hash]);
-header("Location: ../login.php");
+header("Location: ../index.php");
 }
 
 if($action == "edit"){
