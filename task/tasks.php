@@ -24,18 +24,35 @@ if ($view === 'personal') {
 
 function fetchTasks($conn, $status, $filterColumn, $filterValue) {
     $query = "SELECT * FROM task 
-              WHERE status = :status 
+              WHERE status = :status     
               AND $filterColumn = :value
+              AND deadline IS NOT NULL
               ORDER BY deadline";
-
-    $stmt = $conn->prepare($query);
-    $stmt->execute([
+              
+    $stmnt = $conn->prepare($query);
+    $stmnt->execute([
         'status' => $status,
         'value' => $filterValue
     ]);
 
-    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $resultOne = $stmnt->fetchAll(PDO::FETCH_ASSOC);
+
+  $query = "SELECT * FROM task 
+              WHERE status = :status AND deadline IS NULL 
+              AND $filterColumn = :value";
+              
+    $stmnt = $conn->prepare($query);
+    $stmnt->execute([
+        'status' => $status,
+        'value' => $filterValue
+    ]);
+    
+    $resultTwo = $stmnt->fetchAll(PDO::FETCH_ASSOC);
+$result = array_merge($resultOne,$resultTwo);
+
+    return $result;
 }
+
 
 $tasksNotDone = fetchTasks($conn, 'Not Done', $filterColumn, $filterValue);
 $tasksInReview = fetchTasks($conn, 'In Review', $filterColumn, $filterValue);
