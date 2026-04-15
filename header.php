@@ -10,9 +10,9 @@ if(session_status() == PHP_SESSION_NONE){
         
         </div>
             <nav>
-                <a href="<?php echo $base_url; ?>/task/tasks.php">Tasks</a> | 
-                <a href="<?php echo $base_url; ?>/user/create.php">User Create</a> | 
-                <a href="<?php echo $base_url; ?>/task/create.php">Task Create</a>
+                <a href="<?php echo $base_url; ?>/task/tasks.php">Taken</a> | 
+                <a href="<?php echo $base_url; ?>/user/create.php">Gebruiker aanmaken</a> | 
+                <a href="<?php echo $base_url; ?>/task/create.php">Taak aanmaken</a>
                 <?php if($_SESSION == TRUE): ?>
                 <p><a href="<?php echo $base_url; ?>/logout.php">Uitloggen</a></p>
                 <?php else: ?>

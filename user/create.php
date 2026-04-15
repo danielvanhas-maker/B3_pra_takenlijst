@@ -12,7 +12,7 @@
     <?php require_once '../header.php'; ?>
 
 <div class="container">
-        <h1>Nieuwe User</h1>
+        <h1>Nieuwe gebruiker</h1>
 
         <form action="<?php echo $base_url; ?>/backend/userController.php" method="POST">
         <input type="hidden" name="action" value="create">

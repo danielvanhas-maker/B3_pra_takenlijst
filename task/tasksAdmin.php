@@ -49,14 +49,15 @@ $tasksDone = $statementTaskDone->fetchAll(PDO::FETCH_ASSOC);
 <div class="row">
 
 <div class="taskContainer">
-    <h2>Not Done Tasks</h2>
+    <h2>Te Doen</h2>
     <table>
         <tr>
-            <th>Title</th>
-            <th>Description</th>
-            <th>Department</th>
+            <th>Titel</th>
+            <th>Beschrijving</th>
+            <th>Afdeling</th>
             <th>Status</th>
-            <th colspan="2">Actions</th>
+            <th>Deadline</th>
+            <th colspan="2">Acties</th>
         </tr>
 
         <?php foreach ($tasksNotDone as $taskNotDone): ?>
@@ -64,7 +65,7 @@ $tasksDone = $statementTaskDone->fetchAll(PDO::FETCH_ASSOC);
                 <td><?= htmlspecialchars($taskNotDone['title']) ?></td>
                 <td><?= htmlspecialchars($taskNotDone['description']) ?></td>
                 <td><?= htmlspecialchars($taskNotDone['department']) ?></td>
-                <td>Not Done</td>
+                <td>Te Doen</td>
                 <td><a href="edit.php?id=<?= $taskNotDone['id']; ?>" class="edit">Edit</a></td>
                 <td><a href="delete.php?id=<?= $taskNotDone['id']; ?>" class="delete">Delete</a></td>
             </tr>
@@ -76,11 +77,12 @@ $tasksDone = $statementTaskDone->fetchAll(PDO::FETCH_ASSOC);
     <h2>Task In Review</h2>
     <table>
         <tr>
-            <th>Title</th>
-            <th>Description</th>
-            <th>Department</th>
+            <th>Titel</th>
+            <th>Beschrijving</th>
+            <th>Afdeling</th>
             <th>Status</th>
-            <th colspan="2">Actions</th>
+            <th>Deadline</th>
+            <th colspan="2">Acties</th>
         </tr>
 
         <?php foreach ($tasksInReview as $tasksInReview): ?>
@@ -97,14 +99,15 @@ $tasksDone = $statementTaskDone->fetchAll(PDO::FETCH_ASSOC);
 </div>
 
 <div class="taskContainer">
-    <h2>Done Tasks</h2>
+    <h2>Voltooid</h2>
     <table>
         <tr>
-            <th>Title</th>
-            <th>Description</th>
-            <th>Department</th>
+            <th>Titel</th>
+            <th>Beschrijving</th>
+            <th>Afdeling</th>
             <th>Status</th>
-            <th colspan="2">Actions</th>
+            <th>Deadline</th>
+            <th colspan="2">Acties</th>
         </tr>
 
         <?php foreach ($tasksDone as $taskDone): ?>
@@ -112,7 +115,7 @@ $tasksDone = $statementTaskDone->fetchAll(PDO::FETCH_ASSOC);
                 <td><?= htmlspecialchars($taskDone['title']) ?></td>
                 <td><?= htmlspecialchars($taskDone['description']) ?></td>
                 <td><?= htmlspecialchars($taskDone['department']) ?></td>
-                <td>Done</td>
+                <td>Voltooid</td>
                 <td><a href="edit.php?id=<?= $taskDone['id']; ?>" class="edit">Edit</a></td>
                 <td><a href="delete.php?id=<?= $taskDone['id']; ?>" class="delete">Delete</a></td>
             </tr>
