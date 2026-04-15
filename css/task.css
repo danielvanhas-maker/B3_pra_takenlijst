@@ -1,6 +1,7 @@
 table {
     border-collapse: collapse;
     width: 70%;
+    
 }
 
 
@@ -72,11 +73,12 @@ td .delete:hover
     display: flex;
     flex-direction: column;
     align-items: stretch;
+    
 }
 
 .taskContainer table {
     width: 100%;
-    display: block;
+    
     overflow-x: auto;
     min-width: 0;
 }
