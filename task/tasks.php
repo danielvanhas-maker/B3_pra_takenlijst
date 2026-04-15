@@ -7,7 +7,7 @@ if (session_status() == PHP_SESSION_NONE) {
 
 if (!isset($_SESSION['user_id'])) {
     $msg = "Je moet eerst inloggen!";
-    header("Location: ../login.php?msg=$msg");
+    header("Location: ../index.php?msg=$msg");
     exit;
 }
 
