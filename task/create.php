@@ -1,4 +1,12 @@
-<?php require_once __DIR__.'/../backend/conn.php'; ?>
+<?php require_once __DIR__.'/../backend/conn.php'; 
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+if (!isset($_SESSION['user_id'])) {
+    header('Location: ../index.php?msg=Je moet eerst inloggen');
+    exit;
+}
+?>
 <!doctype html>
 <html lang="nl">
 
