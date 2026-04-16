@@ -40,7 +40,7 @@ echo "<div class='msg'>" . $_GET['msg'] . "</div>";
             </div>
 
             <div class="form-group">
-                <label for="password">Wachtwoord</label>
+                <label for="password">Wachtwoord:</label>
                 <input type="password" name="password" id="password" class="form-input">
             </div>   
             <div class="form-submit">
