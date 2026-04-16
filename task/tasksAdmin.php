@@ -28,7 +28,7 @@ if (!isset($_SESSION['user_admin']))
 
 <body>
 <?php require_once '../header.php'; ?>
-<a href="tasksPersonal.php">Naar persoonlijke taken</a>
+
 
 <?php 
 $queryNotDone = "SELECT * FROM task WHERE status = 'Not Done'"; 
