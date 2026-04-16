@@ -34,8 +34,8 @@ if(!isset($_SESSION['user_id']))
                 <?php echo $user['name']?>
         </div class="name">    
         <div class="choice">    
-                <a href="edit.php?id=<?php echo $user['id']; ?>">Edit</a>
-                <a href="delete.php?id=<?php echo $user['id']; ?>">Delete</a>
+                <a href="edit.php?id=<?php echo $user['id']; ?>">Bewerken</a>
+                <a href="delete.php?id=<?php echo $user['id']; ?>">Verwijderen</a>
         </div class="choice">        
         
     </div>
