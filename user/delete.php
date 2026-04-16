@@ -13,6 +13,14 @@
     $id = $_GET['id'];
     ?>
 
+    <?php if ($id != $_SESSION['user_id'])
+    {
+        if (!isset($_SESSION['user_admin'])){
+            header("Location: ../index.php");
+        }
+    }
+    ?>
+
     <div class="container">
         <div class="form-submit"> 
             <h1>Weet je zeker dat je deze gebruiker wilt verwijderen?</h1>
