@@ -17,6 +17,14 @@
 
         <?php
         $id = $_GET['id'];
+        
+
+    if ($id != $_SESSION['user_id'])
+    {
+        if (!isset($_SESSION['user_admin'])){
+            header("Location: ../index.php");
+        }
+    }
 
         //Voer query uit
         require_once '../backend/conn.php';
