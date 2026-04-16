@@ -6,7 +6,15 @@ if (!isset($_SESSION['user_id'])) {
     header('Location: ../index.php?msg=Je moet eerst inloggen');
     exit;
 }
+
+$query = "SELECT userFunction FROM user WHERE id = :id";
+$stmt = $conn->prepare($query);
+$stmt->execute(['id' => $_SESSION['user_id']]);
+$user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+$department = $user['userFunction'];
 ?>
+
 <!doctype html>
 <html lang="nl">
 
@@ -35,16 +43,9 @@ if (!isset($_SESSION['user_id'])) {
                 <input type="text" name="description" id="description" class="form-input">
             </div>
 
-            <div class="form-group">
-                <label for="department">Afdeling:</label>
-                <select name="department" id="department">
-                    <option value="personeel">Personeel</option>
-                    <option value="horeca">Horeca</option>
-                    <option value="techniek">Techniek</option>
-                    <option value="inkoop">Inkoop</option>
-                    <option value="klantenservice">Klantenservice</option>
-                    <option value="groen">Groen</option>
-                </select>
+            <div>
+                <input type="text" value="<?= htmlspecialchars($department) ?>" readonly>
+                <input type="hidden" name="department" value="<?= htmlspecialchars($department) ?>">
             </div>
 
             <div class="form-group">

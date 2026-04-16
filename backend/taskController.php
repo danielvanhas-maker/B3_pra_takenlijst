@@ -32,7 +32,7 @@ if (isset($errors)) {
 
 require_once 'conn.php';
 
-if (isset($deadline)) {
+if (empty($deadline)) {
      $query = 'INSERT INTO task (title, description, department, userId) VALUES (:title, :description, :department, :userId)';
     $statement = $conn->prepare($query);
     $statement->execute([
@@ -87,7 +87,7 @@ if ($action == 'edit') {
     }
 
     if ($isOwner) {
-        if (isset($deadline)) {
+        if (empty($deadline)) {
             $query = 'UPDATE task SET title = :title, description = :description, department = :department, status = :status WHERE id = :id AND userId = :userId';
             $statement = $conn->prepare($query);
             $statement->execute([
